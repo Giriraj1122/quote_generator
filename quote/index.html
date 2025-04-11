@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Quote Generator</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Arial', sans-serif; background-color: #121212; display: flex; justify-content: center; align-items: center; height: 100vh; color: #f0f0f0; }
+    .c { background-color: #1f1f1f; padding: 30px 40px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); text-align: center; width: 380px; }
+    h1 { font-size: 28px; color: #ff9800; margin-bottom: 20px; font-weight: 600; }
+    .q p { font-size: 18px; color: #e0e0e0; margin: 15px 0; font-style: italic; }
+    #a { font-size: 16px; color: #bb86fc; font-weight: 500; }
+    button { padding: 12px 25px; background-color: #6200ea; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s, transform 0.3s; }
+    button:hover { background-color: #3700b3; transform: scale(1.05); }
+    button:active { background-color: #3700b3; transform: scale(1); }
+  </style>
+</head>
+<body>
+  <div class="c">
+    <h1>Random Quote Generator</h1>
+    <div class="q">
+      <p id="t">"Click the button to get a new quote!"</p>
+      <p id="a">- Author</p>
+    </div>
+    <button id="b">Generate Quote</button>
+  </div>
+  <script>
+    const q = [
+      { t: "The only way to do great work is to love what you do.", a: "Steve Jobs" },
+      { t: "Success is not the key to happiness. Happiness is the key to success.", a: "Albert Schweitzer" },
+      { t: "In the middle of every difficulty lies opportunity.", a: "Albert Einstein" },
+      { t: "Don't watch the clock; do what it does. Keep going.", a: "Sam Levenson" },
+      { t: "You must be the change you wish to see in the world.", a: "Mahatma Gandhi" },
+      { t: "It always seems impossible until it’s done.", a: "Nelson Mandela" },
+      { t: "Life is what happens when you're busy making other plans.", a: "John Lennon" },
+      { t: "It does not matter how slowly you go as long as you do not stop.", a: "Confucius" },
+      { t: "You are never too old to set another goal or to dream a new dream.", a: "C.S. Lewis" },
+      { t: "The best way to predict the future is to create it.", a: "Abraham Lincoln" }
+    ];
+    function g() {
+      const r = Math.floor(Math.random() * q.length);
+      const qt = document.getElementById("t");
+      const qa = document.getElementById("a");
+      qt.textContent = `"${q[r].t}"`;
+      qa.textContent = `- ${q[r].a}`;
+    }
+    document.getElementById("b").addEventListener("click", g);
+    g();
+  </script>
+</body>
+</html>
